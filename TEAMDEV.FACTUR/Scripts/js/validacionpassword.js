@@ -24,11 +24,11 @@ $('#txtpassword').keyup(function () {
     let password1 = $('#txtpassword').val();
     let confirmpassword1 = $('#txtpasswordconfirm').val();
 
-    if (password1 == "") {
-        password1.setAttribute('type', 'password');
+    if (password1.trim() == "") {
+        password.setAttribute('type', 'password');
         $("#bi-eye-slash").hide();
         $("#bi-eye").show();
-        $("#msjpassword").html("").css("color", "") 
+        $("#msjpassword").html("").css("color", "red") 
     } else {
         $("#bi-eye").show();
 
@@ -92,11 +92,11 @@ $('#txtpasswordconfirm').keyup(function () {
     let password1 = $('#txtpassword').val();
     let confirmpassword1 = $('#txtpasswordconfirm').val();
 
-    if (confirmpassword1 == "") {
-        confirmpassword1.setAttribute('type', 'password');
+    if (confirmpassword1.trim() == "") {
+        confirmpassword.setAttribute('type', 'password');
         $("#bi-eye-slash-confirm").hide();
         $("#bi-eye-confirm").show();
-        $("#msjconfirmpassword").html("").css("color", "")
+        $("#msjconfirmpassword").html("").css("color", "red")
     } else {
         $("#bi-eye-confirm").show();
 

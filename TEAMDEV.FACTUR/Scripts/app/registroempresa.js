@@ -196,8 +196,36 @@ $("#btnregistrar").on("click", function () {
         params.append("usuario", usuario);
         params.append("password", password);
 
-        PostImg("RegistroEmpresa/insertarEmpresa",params).done(function () {
+        PostImg("RegistroEmpresa/insertarEmpresa", params).done(function (datos) {
+            if (datos.dt.response == "ok") {
 
+                swal({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Empresa guardada correctamente',
+                    text: 'Se envió un correo con sus accesos',
+                    showConfirmButton: true,
+                    timer: 60000,
+                    confirmButtonText: 'Cerrar'
+                }).then((result) => {
+                    if (result.value) {
+                        windows.location = fnBaseURLWeb("Home/Index");
+                    } else {
+                        windows.location = fnBaseURLWeb("Home/Index");
+                    }
+                })
+            }
+            else {
+                swal({
+                    position: 'top-end',
+                    type: 'error',
+                    title: datos.dt.msj,
+                    text: datos.dt.text,
+                    showConfirmButton: true,
+                    timer: 60000,
+                    confirmButtonText: 'Cerrar'
+                })
+            }
         })
     }
 

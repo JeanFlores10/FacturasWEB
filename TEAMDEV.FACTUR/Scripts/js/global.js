@@ -23,3 +23,26 @@ function ajaxMethod(url, method, paramss) {
 function fnBaseURLWeb(url) {
     return window.appURL + url;
 }
+
+
+/*FUNCION PARA ENVIAR ARCHIVOS FILES AL CONTROLADOR*/
+
+function PostImg(url, params) {
+    return ajaxMethodImg(url, "POST", params);
+}
+
+function ajaxMethodImg(url, method, params) {
+    return $.ajax({
+        url: window.appURL + url,
+        method: method,
+        async: false,
+        processData: false,
+        contentType: false,
+        cache: false,
+        data:params
+    }).fail(function (jqXHR, textStatus, errorThrowm) {
+        console.debug(jqXHR);
+        console.debug(textStatus);
+        console.debug(errorThrowm);
+    })
+}
