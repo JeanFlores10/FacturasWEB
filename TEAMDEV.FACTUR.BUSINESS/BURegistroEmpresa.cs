@@ -30,5 +30,17 @@ namespace TEAMDEV.FACTUR.BUSINESS
                 throw ex;
             }
         }
+        public ResponseRegistroEmpresa insertarRegistro(RegistroEmpresaEN paramss, string token)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<ResponseRegistroEmpresa>(client.Post<RegistroEmpresaEN>("RegistroEmpresa/insertarEmpresa", paramss, token));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

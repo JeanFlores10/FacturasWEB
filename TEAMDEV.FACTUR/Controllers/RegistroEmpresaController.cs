@@ -71,7 +71,34 @@ namespace TEAMDEV.FACTUR.Controllers
                     filename = file.FileName;
 
                 }
-                var rpta = "ok";
+
+
+                var paramss = new RegistroEmpresaEN();
+
+                paramss.razonsocial = razonsocial;
+                paramss.ruc = ruc;
+                paramss.email = email;
+                paramss.idpais = idpais;
+                paramss.idmoneda = idmoneda;
+                paramss.direccion = direccion;
+                paramss.TImpuestos = idimpuesto;
+                paramss.idPorcentaje = idporcentaje;
+                paramss.VendeconImpuestos = vendeimpuesto;
+                paramss.username = username;
+                paramss.usuario = usuario;
+                paramss.password = password;
+                paramss.cantuser = 1;
+                paramss.cargo = "superadmin";
+                paramss.filename = filename;
+                paramss.proyecto = "FACTUR";
+
+
+
+                string token = "";
+                var rpta = buregistroempresa.insertarEmpresa(paramss, token);
+
+
+                
                 return Json(new { dt = rpta });
             }
             catch (Exception ex)

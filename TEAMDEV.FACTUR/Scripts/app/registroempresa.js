@@ -156,7 +156,7 @@ $("#btnregistrar").on("click", function () {
 
     if ($("#rdsi").is(":checked")) {
         idimpuesto = $("#sltipoimpuesto").val();
-        idporcentaje = $("slslporcentaje").val();
+        idporcentaje = $("#slporcentaje").val();
         vendeimpuesto = 1;
     }
     if (username == "") {
@@ -198,29 +198,29 @@ $("#btnregistrar").on("click", function () {
 
         PostImg("RegistroEmpresa/insertarEmpresa", params).done(function (datos) {
             if (datos.dt.response == "ok") {
-
-                swal({
-                    position: 'top-end',
-                    type: 'success',
-                    title: 'Empresa guardada correctamente',
-                    text: 'Se envió un correo con sus accesos',
-                    showConfirmButton: true,
-                    timer: 60000,
-                    confirmButtonText: 'Cerrar'
-                }).then((result) => {
-                    if (result.value) {
-                        windows.location = fnBaseURLWeb("Home/Index");
-                    } else {
-                        windows.location = fnBaseURLWeb("Home/Index");
-                    }
-                })
+                console.log("Listo")
+                //swal({
+                //    position: 'top-end',
+                //    type: 'success',
+                //    title: 'Empresa guardada correctamente',
+                //    text: 'Se envió un correo con sus accesos',
+                //    showConfirmButton: true,
+                //    timer: 60000,
+                //    confirmButtonText: 'Cerrar'
+                //}).then((result) => {
+                //    if (result.value) {
+                //        windows.location = fnBaseURLWeb("Home/Index");
+                //    } else {
+                //        windows.location = fnBaseURLWeb("Home/Index");
+                //    }
+                //})
             }
             else {
                 swal({
                     position: 'top-end',
                     type: 'error',
-                    title: datos.dt.msj,
-                    text: datos.dt.text,
+                    title: 'Error',
+                    text: 'No se registró la cuenta',
                     showConfirmButton: true,
                     timer: 60000,
                     confirmButtonText: 'Cerrar'
