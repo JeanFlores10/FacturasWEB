@@ -93,9 +93,18 @@ namespace TEAMDEV.FACTUR.Controllers
                 paramss.proyecto = "FACTUR";
 
 
-
                 string token = "";
                 var rpta = buregistroempresa.insertarEmpresa(paramss, token);
+
+                if (rpta.response == "ok")
+                {
+                    rpta = buregistroempresa.insertarUserAdminEmpresa(paramss, token);
+
+                    if (rpta.response =="ok")
+                    {
+
+                    }
+                }
 
 
                 
